@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>عرض خاص | MonsterIA</title>
+    <style>
+        /* الأنيميشنات الأساسية */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* التصميم الرئيسي */
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+            color: white;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            width: 90%;
+            max-width: 600px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 0.8s ease-out;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        h1 {
+            color: #fff;
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 20px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        p {
+            text-align: center;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        input, button {
+            width: 100%;
+            padding: 15px;
+            border-radius: 8px;
+            border: none;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+        
+        input {
+            background: rgba(255, 255, 255, 0.9);
+            margin-bottom: 15px;
+        }
+        
+        input:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+        }
+        
+        button {
+            background: #4CAF50;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* تصميم للجوال */
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎉 عرض حصري لمدة محدودة!</h1>
+        <p>سجل الآن واحصل على خصم 50% على جميع منتجاتنا الرقمية. العرض ينتهي خلال:</p>
+        
+        <div id="countdown" style="text-align: center; font-size: 1.5rem; margin: 25px 0;"></div>
+        
+        <div class="form-group">
+            <input type="text" id="name" placeholder="اسمك الكامل" required>
+            <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
+            <button id="submit-btn">احصل على الخصم الآن</button>
+        </div>
+    </div>
+
+    <script>
+        // عداد تنازلي لمدة 24 ساعة
+        const countdownDate = new Date();
+        countdownDate.setHours(countdownDate.getHours() + 24);
+        
+        const countdown = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = countdownDate - now;
+            
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            document.getElementById("countdown").innerHTML = 
+                `${hours} ساعات ${minutes} دقائق ${seconds} ثواني`;
+            
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById("countdown").innerHTML = "انتهى العرض!";
+            }
+        }, 1000);
+        
+        // معالجة النموذج
+        document.getElementById("submit-btn").addEventListener("click", function() {
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            
+            if(name && email) {
+                alert(`شكراً ${name}! سيصلك رابط الخصم على ${email}`);
+                // هنا يمكنك إضافة كود إرسال البيانات لسيرفر
+            } else {
+                alert("الرجاء ملء جميع الحقول");
+            }
+        });
+    </script>
+</body>
+</html>
