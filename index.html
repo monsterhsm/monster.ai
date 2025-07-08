@@ -3,152 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>عرض خاص | MonsterIA</title>
+    
+    <!-- تحسينات SEO المتقدمة -->
+    <title>إمبراطورية مونستر | الطريق الذهبي للربح من الذكاء الاصطناعي</title>
+    <meta name="description" content="أقوى دليل عملي 2024 للربح من الذكاء الاصطناعي بدون خبرة - استراتيجيات مدروسة وأدوات مجانية لبناء ثروتك الرقمية">
+    <meta name="keywords" content="ربح من AI, مشاريع الذكاء الاصطناعي, أتمتة الدخل, العمل الحر, ChatGPT, Midjourney">
+    <meta property="og:image" content="https://monsterhsm.github.io/monster.ai/images/og-image.jpg">
+    <link rel="canonical" href="https://monsterhsm.github.io/monster.ai/">
+    
+    <!-- ألوان فاخرة بتدرجات ذهبية وزرقاء -->
     <style>
-        /* الأنيميشنات الأساسية */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        :root {
+            --primary-bg: #0a0e17;
+            --secondary-bg: #1a1f2d;
+            --accent-color: #d4af37; /* ذهبي فاخر */
+            --accent-secondary: #4169e1; /* أزرق ملكي */
+            --text-color: #e6e6e6;
+            --soft-gray: #2a2e3a;
+            --highlight: #ffd700; /* ذهبي ساطع */
+            --gradient-bg: linear-gradient(135deg, #0a0e17 0%, #1a1f2d 100%);
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
-        /* التصميم الرئيسي */
         body {
-            font-family: 'Tajawal', Arial, sans-serif;
-            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-            color: white;
+            font-family: 'Tajawal', sans-serif;
+            line-height: 1.8;
+            color: var(--text-color);
+            background: var(--gradient-bg);
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
         }
         
-        .container {
-            background: rgba(255, 255, 255, 0.1);
+        .luxury-header {
+            background: rgba(10, 14, 23, 0.8);
             backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 30px;
-            width: 90%;
-            max-width: 600px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 0.8s ease-out;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-bottom: 1px solid var(--accent-color);
+        }
+        
+        .article-container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--secondary-bg);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(212, 175, 55, 0.2);
         }
         
         h1 {
-            color: #fff;
+            color: var(--highlight);
+            font-size: 2.5rem;
+            background: linear-gradient(to right, var(--accent-color), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 20px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-        }
-        
-        p {
-            text-align: center;
-            font-size: 1.1rem;
-            line-height: 1.6;
             margin-bottom: 30px;
+            position: relative;
         }
         
-        .form-group {
-            margin-bottom: 20px;
+        h1:after {
+            content: "";
+            display: block;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--accent-color), var(--accent-secondary));
+            margin: 15px auto;
+            border-radius: 3px;
         }
         
-        input, button {
-            width: 100%;
-            padding: 15px;
-            border-radius: 8px;
+        /* كروت الخدمات الفاخرة */
+        .luxury-card {
+            background: rgba(26, 31, 45, 0.7);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+            transition: all 0.4s ease;
+            box-shadow: var(--card-shadow);
+        }
+        
+        .luxury-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-color);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+        }
+        
+        /* أزرار فاخرة */
+        .luxury-btn {
+            background: linear-gradient(45deg, var(--accent-color), #f1c40f);
+            color: #000 !important;
             border: none;
-            font-size: 1rem;
-            transition: all 0.3s;
-        }
-        
-        input {
-            background: rgba(255, 255, 255, 0.9);
-            margin-bottom: 15px;
-        }
-        
-        input:focus {
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
-        }
-        
-        button {
-            background: #4CAF50;
-            color: white;
+            padding: 12px 25px;
+            border-radius: 30px;
             font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
         }
         
-        button:hover {
-            background: #45a049;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* تصميم للجوال */
-        @media (max-width: 768px) {
-            .container {
-                width: 95%;
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
+        .luxury-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 7px 20px rgba(212, 175, 55, 0.6);
         }
     </style>
+    
+    <!-- خطوط وأيقونات فاخرة -->
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>🎉 عرض حصري لمدة محدودة!</h1>
-        <p>سجل الآن واحصل على خصم 50% على جميع منتجاتنا الرقمية. العرض ينتهي خلال:</p>
+    <!-- شريط التقدم الذهبي -->
+    <div id="luxury-progress" style="height:4px;background:linear-gradient(to right, var(--accent-color), var(--accent-secondary));position:fixed;top:0;right:0;width:0%;z-index:9999;"></div>
+
+    <div class="article-container">
+        <!-- العنوان الرئيسي مع تأثير فاخر -->
+        <h1>الطريق الذهبي للربح من الذكاء الاصطناعي</h1>
         
-        <div id="countdown" style="text-align: center; font-size: 1.5rem; margin: 25px 0;"></div>
+        <!-- نظام التقييم الفاخر -->
+        <div class="luxury-rating">
+            <div class="stars">
+                <i class="fas fa-star" data-rating="1"></i>
+                <i class="fas fa-star" data-rating="2"></i>
+                <i class="fas fa-star" data-rating="3"></i>
+                <i class="fas fa-star" data-rating="4"></i>
+                <i class="fas fa-star" data-rating="5"></i>
+            </div>
+            <div id="rating-text" style="color:var(--accent-color);margin-top:10px;"></div>
+        </div>
         
-        <div class="form-group">
-            <input type="text" id="name" placeholder="اسمك الكامل" required>
-            <input type="email" id="email" placeholder="بريدك الإلكتروني" required>
-            <button id="submit-btn">احصل على الخصم الآن</button>
+        <!-- كروت الخدمات -->
+        <div class="luxury-card" id="section1">
+            <h2><i class="fas fa-crown" style="color:var(--accent-color);margin-left:10px;"></i> إنشاء محتوى آلي بمستوى احترافي</h2>
+            <p>أدوات ذهبية لإنشاء محتوى متميز:</p>
+            <ul>
+                <li>تصميم منشورات إعلانية بلمسة ذهبية</li>
+                <li>كتابة محتوى متوافق مع السيو</li>
+                <li>إنشاء فيديوهات آلية بجودة عالية</li>
+            </ul>
+            <a href="#contact" class="luxury-btn">ابدأ الآن</a>
+        </div>
+        
+        <!-- نظام التعليقات الفاخر -->
+        <div class="luxury-comments">
+            <h3><i class="fas fa-comments" style="color:var(--accent-color);"></i> آراء العملاء</h3>
+            <div id="comments-container"></div>
+            <form id="comment-form" style="margin-top:30px;">
+                <input type="text" id="comment-name" placeholder="اسمك الكريم" style="background:rgba(255,255,255,0.1);border:1px solid var(--accent-color);color:white;padding:12px;border-radius:8px;width:100%;margin-bottom:15px;">
+                <textarea id="comment-text" placeholder="تعليقك..." style="background:rgba(255,255,255,0.1);border:1px solid var(--accent-color);color:white;padding:12px;border-radius:8px;width:100%;min-height:100px;"></textarea>
+                <button type="submit" class="luxury-btn" style="margin-top:15px;">إرسال التعليق</button>
+            </form>
         </div>
     </div>
 
+    <!-- السكربتات المتقدمة -->
     <script>
-        // عداد تنازلي لمدة 24 ساعة
-        const countdownDate = new Date();
-        countdownDate.setHours(countdownDate.getHours() + 24);
+    // شريط التقدم الذهبي
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('luxury-progress').style.width = scrolled + '%';
+    });
+    
+    // نظام التقييم بالنجوم
+    document.querySelectorAll('.stars i').forEach(star => {
+        star.addEventListener('click', () => {
+            const rating = star.getAttribute('data-rating');
+            document.querySelectorAll('.stars i').forEach(s => {
+                s.style.color = s.getAttribute('data-rating') <= rating ? 'var(--highlight)' : '#ccc';
+            });
+            document.getElementById('rating-text').innerText = `شكراً لتقييمك ${rating} نجوم!`;
+            localStorage.setItem('luxury-rating', rating);
+        });
         
-        const countdown = setInterval(() => {
-            const now = new Date().getTime();
-            const distance = countdownDate - now;
-            
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-            
-            document.getElementById("countdown").innerHTML = 
-                `${hours} ساعات ${minutes} دقائق ${seconds} ثواني`;
-            
-            if (distance < 0) {
-                clearInterval(countdown);
-                document.getElementById("countdown").innerHTML = "انتهى العرض!";
-            }
-        }, 1000);
+        // استعادة التقييم إذا موجود
+        const savedRating = localStorage.getItem('luxury-rating');
+        if (savedRating && star.getAttribute('data-rating') <= savedRating) {
+            star.style.color = 'var(--highlight)';
+        }
+    });
+    
+    // نظام التعليقات المتطور
+    document.getElementById('comment-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const comment = {
+            name: document.getElementById('comment-name').value,
+            text: document.getElementById('comment-text').value,
+            date: new Date().toLocaleDateString('ar-AR'),
+            approved: false
+        };
         
-        // معالجة النموذج
-        document.getElementById("submit-btn").addEventListener("click", function() {
-            const name = document.getElementById("name").value;
-            const email = document.getElementById("email").value;
-            
-            if(name && email) {
-                alert(`شكراً ${name}! سيصلك رابط الخصم على ${email}`);
-                // هنا يمكنك إضافة كود إرسال البيانات لسيرفر
-            } else {
-                alert("الرجاء ملء جميع الحقول");
+        let comments = JSON.parse(localStorage.getItem('luxury-comments')) || [];
+        comments.unshift(comment); // إضافة التعليق في البداية
+        localStorage.setItem('luxury-comments', JSON.stringify(comments));
+        
+        displayComments();
+        this.reset();
+        alert('شكراً لتعليقك! سيظهر بعد المراجعة');
+    });
+    
+    function displayComments() {
+        const container = document.getElementById('comments-container');
+        container.innerHTML = '';
+        const comments = JSON.parse(localStorage.getItem('luxury-comments')) || [];
+        
+        comments.slice(0, 5).forEach(comment => {
+            container.innerHTML += `
+                <div class="comment" style="background:rgba(255,255,255,0.05);padding:20px;border-radius:10px;margin-bottom:15px;border-left:3px solid var(--accent-color);">
+                    <strong style="color:var(--accent-color);">${comment.name}</strong>
+                    <p style="margin:10px 0;">${comment.text}</p>
+                    <small style="color:#aaa;">${comment.date}</small>
+                </div>
+            `;
+        });
+    }
+    
+    // التمرير السلس مع offset للهيدر الثابت
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId !== '#') {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                }
             }
         });
+    });
+    
+    // تهيئة الصفحة
+    document.addEventListener('DOMContentLoaded', () => {
+        displayComments();
+        
+        // تأثيرات ظهور العناصر
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = 1;
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        document.querySelectorAll('.luxury-card').forEach(card => {
+            card.style.opacity = 0;
+            card.style.transform = 'translateY(50px)';
+            card.style.transition = 'all 0.6s ease-out';
+            observer.observe(card);
+        });
+    });
     </script>
 </body>
 </html>
