@@ -3,16 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>رحلة الوعي والربح | إمبراطورية مونستر</title>
-    
-    <!-- تحسينات SEO -->
-    <meta name="description" content="رحلة متكاملة تربط بين التمكين المادي والنمو الروحي باستخدام الذكاء الاصطناعي">
-    <meta property="og:image" content="https://example.com/images/journey-map.jpg">
-    
-    <!-- الخطوط والأيقونات -->
+    <title>إمبراطورية مونستر - رحلة الوعي والربح</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
     <style>
         :root {
             --primary-dark: #0f172a;
@@ -23,7 +16,6 @@
             --holy-gradient: linear-gradient(to bottom, #0f172a, #1e293b);
             --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
-        
         body {
             font-family: 'Tajawal', sans-serif;
             background: var(--holy-gradient);
@@ -32,62 +24,11 @@
             margin: 0;
             padding: 0;
         }
-        
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
         }
-        
-        /* تصميم الوحي */
-        .revelation-box {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--gold-light);
-            border-radius: 16px;
-            padding: 2rem;
-            margin: 3rem 0;
-            position: relative;
-            overflow: hidden;
-            box-shadow: var(--card-shadow);
-        }
-        
-        /* خط الزمن */
-        .timeline {
-            position: relative;
-            padding-right: 2rem;
-        }
-        
-        .timeline-step {
-            position: relative;
-            padding-bottom: 3rem;
-        }
-        
-        .timeline-step:last-child {
-            padding-bottom: 0;
-        }
-        
-        .timeline-marker {
-            position: absolute;
-            right: -1.3rem;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            background: var(--gold-light);
-            border-radius: 50%;
-            z-index: 2;
-        }
-        
-        .timeline-connector {
-            position: absolute;
-            right: -0.6rem;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: linear-gradient(to bottom, var(--gold-light), transparent);
-            z-index: 1;
-        }
-        
-        /* الأزرار */
         .gold-btn {
             background: linear-gradient(45deg, var(--gold-dark), var(--gold-light));
             color: #000;
@@ -97,234 +38,115 @@
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s;
-            display: inline-block;
-            text-decoration: none;
-            margin-top: 1rem;
         }
-        
         .gold-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 5px 15px rgba(245, 215, 66, 0.4);
-        }
-        
-        /* التأثيرات */
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.05); opacity: 0.8; }
-            100% { transform: scale(1); opacity: 1; }
-        }
-        
-        .pulse-effect {
-            animation: pulse 3s infinite;
         }
     </style>
 </head>
 <body>
 
-<!-- شريط التقدم -->
-<div id="page-progress" style="height:4px;background:linear-gradient(to right, var(--gold-light), var(--spiritual-blue));position:fixed;top:0;right:0;width:0%;z-index:9999;"></div>
-
 <div class="container">
-    <!-- العنوان الرئيسي -->
+    <!-- شريط النقاط -->
+    <div id="points-bar" style="position: fixed; top: 20px; left: 20px; background: var(--gold-dark); color: #000; padding: 0.5rem 1.5rem; border-radius: 20px; z-index: 1000; font-weight: bold;">
+        <i class="fas fa-coins"></i> <span id="points-count">0</span> نقطة
+    </div>
+
+    <!-- محتوى الصفحة -->
     <header style="text-align: center; margin-bottom: 3rem;">
         <h1 style="font-size: 2.5rem; background: linear-gradient(to right, var(--gold-light), var(--spiritual-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
             إمبراطورية مونستر
         </h1>
-        <p style="color: var(--text-light); opacity: 0.8;">
-            الرحلة الذهبية للربح من الذكاء الاصطناعي
-        </p>
+        <p>الربح من الذكاء الاصطناعي برؤية روحانية</p>
     </header>
-    
-    <!-- قسم الرؤية -->
-    <section class="revelation-box">
-        <h2 style="color: var(--gold-light); text-align: center;">
-            <i class="fas fa-eye" style="margin-left: 10px;"></i> الرؤية الشاملة
-        </h2>
-        <p style="text-align: center;">
-            "ليس مجرد ربح مادي... بل <span style="color: var(--gold-light);">صحوة تقنية-روحية</span> تبدأ من الداخل"
-        </p>
-        
-        <div style="display: flex; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
-            <div style="flex: 1; min-width: 200px; background: rgba(30, 58, 138, 0.3); padding: 1.5rem; border-radius: 10px; border-left: 3px solid var(--gold-light);">
-                <h3 style="color: var(--gold-light); margin-top: 0;">البُعد الروحي</h3>
-                <ul style="padding-right: 20px;">
-                    <li>التوكل على الله أساس النجاح</li>
-                    <li>تزكية النفس قبل بناء الثروة</li>
-                </ul>
-            </div>
-            
-            <div style="flex: 1; min-width: 200px; background: rgba(30, 58, 138, 0.3); padding: 1.5rem; border-radius: 10px; border-left: 3px solid var(--gold-light);">
-                <h3 style="color: var(--gold-light); margin-top: 0;">البُعد المادي</h3>
-                <ul style="padding-right: 20px;">
-                    <li>منتجات رقمية ذكية</li>
-                    <li>دخل شهري مستدام</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-    
-    <!-- خريطة الرحلة -->
-    <section style="background: rgba(10, 16, 40, 0.7); padding: 2rem; border-radius: 16px; margin-top: 2rem; border: 1px solid var(--gold-light);">
-        <h2 style="color: var(--gold-light); text-align: center; border-bottom: 1px dashed var(--gold-light); padding-bottom: 1rem;">
-            <i class="fas fa-map-marked-alt" style="margin-left: 10px;"></i> خريطة الرحلة
-        </h2>
-        
-        <div class="timeline" style="margin-top: 2rem;">
-            <!-- الأسبوع الأول -->
-            <div class="timeline-step">
-                <div class="timeline-marker"></div>
-                <div style="background: rgba(30, 58, 138, 0.5); padding: 1.5rem; border-radius: 10px; border-right: 3px solid var(--gold-light);">
-                    <h3 style="color: var(--gold-light); margin-top: 0;">الأسبوع ١: التأسيس</h3>
-                    <ul style="padding-right: 20px;">
-                        <li>بناء العقيدة العملية</li>
-                        <li>إنشاء ٣ محتويات أساسية</li>
-                        <li>إطلاق النسخة التجريبية</li>
-                    </ul>
-                    <button onclick="startJourney(1)" class="gold-btn">
-                        ابدأ الأسبوع الأول
-                    </button>
-                </div>
-            </div>
-            
-            <!-- الأسبوع الثاني -->
-            <div class="timeline-step">
-                <div class="timeline-marker"></div>
-                <div style="background: rgba(30, 58, 138, 0.5); padding: 1.5rem; border-radius: 10px; border-right: 3px solid var(--gold-light);">
-                    <h3 style="color: var(--gold-light); margin-top: 0;">الأسبوع ٢: التمكين</h3>
-                    <ul style="padding-right: 20px;">
-                        <li>تفعيل نظام الدفع</li>
-                        <li>تحليل البيانات</li>
-                        <li>إطلاق النسخة المميزة</li>
-                    </ul>
-                    <button id="week2-btn" class="gold-btn" style="opacity: 0.5; cursor: not-allowed;" disabled>
-                        سيُفتح قريبًا
-                    </button>
-                </div>
-            </div>
-            
-            <div class="timeline-connector"></div>
-        </div>
-    </section>
-    
-    <!-- نظام المتابعة -->
-    <section style="background: rgba(212, 175, 55, 0.1); padding: 2rem; border-radius: 16px; margin-top: 3rem; border: 1px dashed var(--gold-light);">
-        <h2 style="color: var(--gold-light); text-align: center;">
-            <i class="fas fa-chart-line" style="margin-left: 10px;"></i> تقدمك الشخصي
-        </h2>
-        
-        <div id="progress-container" style="margin-top: 1.5rem;">
-            <!-- سيتم ملؤها بالسكربت -->
-        </div>
-    </section>
+
+    <!-- نموذج التسجيل -->
+    <div style="background: rgba(30, 58, 138, 0.5); padding: 2rem; border-radius: 16px; max-width: 500px; margin: 0 auto;">
+        <h2 style="color: var(--gold-light); text-align: center;">ابدأ رحلتك</h2>
+        <form id="register-form">
+            <input type="text" id="user-name" placeholder="اسمك الكامل" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 2rem; font-family: 'Tajawal';">
+            <input type="email" id="user-email" placeholder="بريدك الإلكتروني" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 2rem; font-family: 'Tajawal';">
+            <button type="submit" class="gold-btn" style="width: 100%;">
+                انضم إلى الرحلة <i class="fas fa-arrow-left"></i>
+            </button>
+        </form>
+    </div>
 </div>
 
-<!-- السكربتات -->
+<!-- مكتبة EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-// شريط التقدم
-window.addEventListener('scroll', () => {
-    const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
-    const scrollProgress = (window.scrollY / scrollTotal) * 100;
-    document.getElementById('page-progress').style.width = scrollProgress + '%';
-});
-
-// نظام المتابعة
-const userProgress = {
-    week1: {
-        tasks: [
-            { name: "كتابة العقيدة العملية", completed: false },
-            { name: "تصميم ٣ محتويات", completed: false },
-            { name: "إطلاق النسخة التجريبية", completed: false }
-        ],
-        started: false,
-        completed: false
-    },
-    week2: {
-        tasks: [
-            { name: "إعداد نظام الدفع", completed: false },
-            { name: "تحليل بيانات المستخدمين", completed: false },
-            { name: "إطلاق النسخة المميزة", completed: false }
-        ],
-        started: false,
-        completed: false
-    }
-};
-
-function renderProgress() {
-    const container = document.getElementById('progress-container');
-    let html = '';
+    // تهيئة EmailJS بمفاتيحك
+    emailjs.init("T6fbrKphHDBAfp9NI");
     
-    for (const [week, data] of Object.entries(userProgress)) {
-        if (data.started) {
-            html += `<h3 style="color: var(--gold-light);">${week === 'week1' ? 'الأسبوع الأول' : 'الأسبوع الثاني'}</h3>`;
-            html += `<div style="margin-bottom: 1.5rem;">`;
-            
-            data.tasks.forEach(task => {
-                html += `
-                <div style="display: flex; align-items: center; margin-bottom: 0.5rem;">
-                    <input type="checkbox" id="${task.name}" ${task.completed ? 'checked' : ''} 
-                           onchange="updateTask('${week}', '${task.name}')" style="margin-left: 10px;">
-                    <label for="${task.name}" style="${task.completed ? 'text-decoration: line-through; opacity: 0.7;' : ''}">
-                        ${task.name}
-                    </label>
-                </div>`;
+    // بيانات المستخدم
+    const userData = {
+        name: "",
+        email: "",
+        points: 0,
+        completedTasks: []
+    };
+    
+    // DOM Events
+    document.getElementById('register-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        userData.name = document.getElementById('user-name').value;
+        userData.email = document.getElementById('user-email').value;
+        
+        if (!isValidEmail(userData.email)) {
+            alert("الرجاء إدخال بريد إلكتروني صحيح");
+            return;
+        }
+        
+        // إرسال إيميل الترحيب
+        emailjs.send("service_gyga01c", "template_2iprvpi", {
+            to_name: userData.name,
+            to_email: userData.email,
+            message: "مرحبًا بك في رحلة الوعي والربح!",
+            reply_to: "monsterhossam1@gmail.com"
+        }).then(() => {
+            alert("تم التسجيل! تحقق من بريدك للإرشادات");
+            addPoints(50); // مكافأة التسجيل
+        });
+    });
+    
+    // نظام النقاط
+    function addPoints(amount) {
+        userData.points += amount;
+        document.getElementById('points-count').textContent = userData.points;
+        
+        // إرسال إيميل عند اكتساب نقاط
+        if (amount >= 50) {
+            emailjs.send("service_gyga01c", "template_2iprvpi", {
+                to_name: userData.name,
+                to_email: userData.email,
+                message: `لقد ربحت ${amount} نقطة! نقاطك الإجمالية: ${userData.points}`,
+                reply_to: "monsterhossam1@gmail.com"
             });
-            
-            html += `</div>`;
         }
     }
     
-    container.innerHTML = html || '<p>ابدأ رحلتك لرؤية تقدمك هنا...</p>';
-}
-
-function startJourney(weekNum) {
-    const weekKey = `week${weekNum}`;
-    if (confirm(`هل أنت مستعد لبدء الأسبوع ${weekNum}؟ هذه خطوة مهمة تتطلب التزامًا.`)) {
-        userProgress[weekKey].started = true;
-        localStorage.setItem('userProgress', JSON.stringify(userProgress));
-        
-        if (weekNum === 1) {
-            document.getElementById('week2-btn').style.opacity = '1';
-            document.getElementById('week2-btn').style.cursor = 'pointer';
-            document.getElementById('week2-btn').removeAttribute('disabled');
-            document.getElementById('week2-btn').onclick = () => startJourney(2);
+    // التحقق من صحة البريد
+    function isValidEmail(email) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+    }
+    
+    // تحميل البيانات المحفوظة
+    document.addEventListener('DOMContentLoaded', () => {
+        const savedData = localStorage.getItem('monsterUserData');
+        if (savedData) {
+            Object.assign(userData, JSON.parse(savedData));
+            document.getElementById('points-count').textContent = userData.points;
         }
-        
-        renderProgress();
-        alert(`تم تفعيل الأسبوع ${weekNum}! ستجد المهام في قسم التقدم.`);
-    }
-}
-
-function updateTask(week, taskName) {
-    const task = userProgress[week].tasks.find(t => t.name === taskName);
-    if (task) {
-        task.completed = !task.completed;
-        localStorage.setItem('userProgress', JSON.stringify(userProgress));
-        renderProgress();
-    }
-}
-
-// تحميل التقدم المحفوظ
-document.addEventListener('DOMContentLoaded', () => {
-    const savedProgress = localStorage.getItem('userProgress');
-    if (savedProgress) {
-        Object.assign(userProgress, JSON.parse(savedProgress));
-        if (userProgress.week1.started) {
-            document.getElementById('week2-btn').style.opacity = '1';
-            document.getElementById('week2-btn').style.cursor = 'pointer';
-            document.getElementById('week2-btn').removeAttribute('disabled');
-            document.getElementById('week2-btn').onclick = () => startJourney(2);
-        }
-        renderProgress();
-    }
-});
+    });
+    
+    // حفظ البيانات عند الخروج
+    window.addEventListener('beforeunload', () => {
+        localStorage.setItem('monsterUserData', JSON.stringify(userData));
+    });
 </script>
-
-<!-- تذييل الصفحة -->
-<footer style="text-align: center; margin-top: 3rem; padding: 1.5rem; background: rgba(0,0,0,0.5);">
-    <p style="color: var(--gold-light); font-size: 0.9rem;">
-        "وَمَا تَوْفِيقِي إِلَّا بِاللَّهِ ۚ عَلَيْهِ تَوَكَّلْتُ وَإِلَيْهِ أُنِيبُ"
-    </p>
-</footer>
 
 </body>
 </html>
