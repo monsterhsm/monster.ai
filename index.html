@@ -3,209 +3,812 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إمبراطورية مونستر - رحلة الوعي والربح</title>
+    <title>إمبراطورية مونستر - واحة الوعي والربح</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-dark: #0f172a;
-            --gold-light: #f5d742;
-            --gold-dark: #d4af37;
-            --spiritual-blue: #1e3a8a;
-            --text-light: #f8fafc;
-            --holy-gradient: linear-gradient(to bottom, #0f172a, #1e293b);
-            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            --primary-color: #0a192f; /* لون أساسي مريح */
+            --secondary-color: #172a45; /* لون ثانوي */
+            --accent-color: #64ffda; /* لون مميز */
+            --text-light: #ccd6f6; /* لون النص الفاتح */
+            --text-lighter: #e6f1ff; /* لون نص أفتح */
+            --card-bg: #112240; /* خلفية البطاقات */
+            --success-color: #2ecc71; /* لون النجاح */
+            --warning-color: #f39c12; /* لون تحذير */
+            --error-color: #e74c3c; /* لون خطأ */
+            --transition: all 0.25s ease-in-out; /* تأثيرات حركية */
         }
+        
         body {
             font-family: 'Tajawal', sans-serif;
-            background: var(--holy-gradient);
+            background-color: var(--primary-color);
             color: var(--text-light);
             line-height: 1.8;
             margin: 0;
             padding: 0;
+            transition: var(--transition);
         }
+        
         .container {
             max-width: 900px;
             margin: 0 auto;
             padding: 2rem;
         }
-        .gold-btn {
-            background: linear-gradient(45deg, var(--gold-dark), var(--gold-light));
-            color: #000;
-            border: none;
-            padding: 0.8rem 1.8rem;
-            border-radius: 2rem;
-            font-weight: bold;
+        
+        /* شريط التقدم العلوي */
+        #progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--secondary-color);
+            z-index: 1000;
+        }
+        
+        #progress-fill {
+            height: 100%;
+            background: var(--accent-color);
+            width: 0%;
+            transition: width 0.5s;
+        }
+        
+        /* زر الذهاب للأعلى */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: var(--accent-color);
+            color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
-            transition: all 0.3s;
+            opacity: 0;
+            visibility: hidden;
+            transition: var(--transition);
+            z-index: 999;
         }
-        .gold-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(245, 215, 66, 0.4);
+        
+        .scroll-top.active {
+            opacity: 1;
+            visibility: visible;
         }
-        .hidden {
-            display: none !important;
+        
+        /* بطاقات المهام */
+        .task-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--accent-color);
+            transition: var(--transition);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .task-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* نظام النار (بدل النباتات) */
+        .flame-points {
+            color: var(--accent-color);
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .flame-points i {
+            margin-left: 5px;
+            color: var(--warning-color);
+        }
+        
+        /* أنماط التنبيهات */
+        .alert {
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .alert-success {
+            background: rgba(46, 204, 113, 0.2);
+            border-left: 4px solid var(--success-color);
+            color: var(--success-color);
+        }
+        
+        .alert-warning {
+            background: rgba(243, 156, 18, 0.2);
+            border-left: 4px solid var(--warning-color);
+            color: var(--warning-color);
+        }
+        
+        .alert-error {
+            background: rgba(231, 76, 60, 0.2);
+            border-left: 4px solid var(--error-color);
+            color: var(--error-color);
+        }
+        
+        /* أنماط الأزرار */
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-primary:hover {
+            background: #52d3b8;
+            transform: translateY(-2px);
+        }
+        
+        /* أنماط الفيديو الحصري */
+        .video-container {
+            position: relative;
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            z-index: 10;
+        }
+        
+        .video-overlay i {
+            font-size: 50px;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+        }
+        
+        /* نظام الظلام/الضوء */
+        .theme-switch {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 999;
+        }
+        
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--secondary-color);
+            transition: var(--transition);
+            border-radius: 34px;
+        }
+        
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+            border-radius: 50%;
+        }
+        
+        input:checked + .slider {
+            background-color: var(--accent-color);
+        }
+        
+        input:checked + .slider:before {
+            transform: translateX(26px);
+            background-color: var(--primary-color);
+        }
+        
+        /* تأثيرات دخول الصفحة */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in forwards;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* تصميم متجاوب */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .task-card {
+                padding: 15px;
+            }
         }
     </style>
 </head>
 <body>
-
-<div class="container">
-    <!-- شريط النقاط -->
-    <div id="points-bar" class="hidden" style="position: fixed; top: 20px; left: 20px; background: var(--gold-dark); color: #000; padding: 0.5rem 1.5rem; border-radius: 20px; z-index: 1000; font-weight: bold;">
-        <i class="fas fa-coins"></i> <span id="points-count">0</span> نقطة
+    <!-- شريط التقدم العلوي -->
+    <div id="progress-bar">
+        <div id="progress-fill"></div>
     </div>
 
-    <!-- محتوى الصفحة -->
-    <header style="text-align: center; margin-bottom: 3rem;">
-        <h1 style="font-size: 2.5rem; background: linear-gradient(to right, var(--gold-light), var(--spiritual-blue)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-            إمبراطورية مونستر
-        </h1>
-        <p>الربح من الذكاء الاصطناعي برؤية روحانية</p>
-    </header>
-
-    <!-- قسم التسجيل -->
-    <div id="registration-section" style="background: rgba(30, 58, 138, 0.5); padding: 2rem; border-radius: 16px; max-width: 500px; margin: 0 auto;">
-        <h2 style="color: var(--gold-light); text-align: center;">ابدأ رحلتك</h2>
-        <form id="register-form">
-            <input type="text" id="user-name" placeholder="اسمك الكامل" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 2rem; font-family: 'Tajawal';">
-            <input type="email" id="user-email" placeholder="بريدك الإلكتروني" required style="width: 100%; padding: 1rem; margin-bottom: 1rem; border: none; border-radius: 2rem; font-family: 'Tajawal';">
-            <button type="submit" class="gold-btn" style="width: 100%;">
-                انضم إلى الرحلة <i class="fas fa-arrow-left"></i>
-            </button>
-        </form>
+    <!-- زر الذهاب للأعلى -->
+    <div class="scroll-top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+        <i class="fas fa-arrow-up"></i>
     </div>
 
-    <!-- قسم الرحلة (مخفي في البداية) -->
-    <div id="journey-section" class="hidden" style="margin-top: 2rem;">
-        <h2 style="color: var(--gold-light); text-align: center;">مرحبًا <span id="display-name"></span>!</h2>
-        <p style="text-align: center;">لقد بدأت رحلتك بنجاح وحصلت على <span style="color: var(--gold-light);">50 نقطة</span> مبدئية.</p>
-        
-        <div style="background: rgba(30, 58, 138, 0.3); padding: 1.5rem; border-radius: 10px; margin-top: 2rem; border-left: 3px solid var(--gold-light);">
-            <h3 style="color: var(--gold-light);">المهام المتاحة:</h3>
-            <ul style="padding-right: 20px;">
-                <li>
-                    <input type="checkbox" id="task1" onchange="completeTask('task1', 30)">
-                    <label for="task1">مشاهدة الفيديو التمهيدي (30 نقطة)</label>
-                </li>
-                <li>
-                    <input type="checkbox" id="task2" onchange="completeTask('task2', 50)">
-                    <label for="task2">تحميل الدليل الأول (50 نقطة)</label>
-                </li>
-            </ul>
+    <!-- تبديل الثيم -->
+    <div class="theme-switch">
+        <label class="switch">
+            <input type="checkbox" id="theme-toggle">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="container">
+        <!-- شريط النار (بدل النباتات) -->
+        <div id="flame-bar" class="hidden" style="position: fixed; top: 20px; left: 20px; background: var(--secondary-color); color: var(--accent-color); padding: 0.5rem 1.5rem; border-radius: 20px; z-index: 1000; font-weight: bold;">
+            <i class="fas fa-fire"></i> <span id="flame-count">0</span> شعلة
+        </div>
+
+        <!-- محتوى الصفحة -->
+        <header style="text-align: center; margin-bottom: 3rem;" class="fade-in">
+            <h1 style="font-size: 2.5rem; background: linear-gradient(to right, var(--accent-color), var(--text-light)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                إمبراطورية مونستر
+            </h1>
+            <p style="color: var(--text-lighter);">واحة الوعي والربح بالذكاء الاصطناعي</p>
+        </header>
+
+        <!-- قسم التسجيل -->
+        <div id="registration-section" class="fade-in">
+            <div class="task-card">
+                <h2 style="color: var(--accent-color); text-align: center;">ابدأ رحلتك</h2>
+                <form id="register-form">
+                    <div style="margin-bottom: 15px;">
+                        <label for="user-name" style="display: block; margin-bottom: 5px; color: var(--text-lighter);">اسمك الكامل</label>
+                        <input type="text" id="user-name" placeholder="أدخل اسمك" required style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid var(--secondary-color); background: var(--secondary-color); color: var(--text-light);">
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <label for="user-email" style="display: block; margin-bottom: 5px; color: var(--text-lighter);">بريدك الإلكتروني</label>
+                        <input type="email" id="user-email" placeholder="أدخل بريدك الإلكتروني" required style="width: 100%; padding: 12px; border-radius: 5px; border: 1px solid var(--secondary-color); background: var(--secondary-color); color: var(--text-light);">
+                    </div>
+                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                        انضم إلى الرحلة <i class="fas fa-arrow-left"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+
+        <!-- قسم الرحلة (مخفي في البداية) -->
+        <div id="journey-section" class="hidden">
+            <div class="fade-in">
+                <div class="task-card">
+                    <h2 style="color: var(--accent-color); text-align: center;">مرحبًا <span id="display-name"></span>!</h2>
+                    <p style="text-align: center; color: var(--text-lighter);">لقد بدأت رحلتك بنجاح وحصلت على <span class="flame-points"><i class="fas fa-fire"></i> 50 شعلة</span> مبدئية.</p>
+                </div>
+            </div>
+            
+            <!-- شريط التقدم -->
+            <div class="task-card fade-in">
+                <h4 style="text-align: center; color: var(--accent-color);">تقدمك في الرحلة <span id="progress-percent">0</span>%</h4>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="journey-progress"></div>
+                </div>
+            </div>
+            
+            <!-- فيديو حصري -->
+            <div class="video-container fade-in">
+                <div class="video-overlay" id="video-overlay">
+                    <i class="fas fa-lock"></i>
+                    <h3>هذا الفيديو حصري لأعضاء النخبة</h3>
+                    <p>احصل على 30 شعلة لفتح هذا المحتوى القيم</p>
+                    <div class="flame-points" style="margin-top: 10px; font-size: 1.2rem;">
+                        <i class="fas fa-fire"></i> <span id="current-flames">0</span> / 30
+                    </div>
+                </div>
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/YOUR_VIDEO_ID" frameborder="0" allowfullscreen id="premium-video" style="display: none;"></iframe>
+            </div>
+            
+            <!-- المهام الأساسية -->
+            <div class="task-list fade-in">
+                <h3 style="color: var(--accent-color);"><i class="fas fa-tasks"></i> المهام الأساسية</h3>
+                
+                <div class="task-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div>
+                            <input type="checkbox" id="task1" onchange="completeTask('task1', 30, 'basic')" style="margin-left: 10px;">
+                            <label for="task1" style="font-weight: bold; color: var(--text-lighter);">مشاهدة الفيديو التمهيدي</label>
+                        </div>
+                        <span class="flame-points"><i class="fas fa-fire"></i> +30</span>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 14px; margin-top: 5px;">شاهد الفيديو التعريفي لفهم أساسيات المنصة وطريقة تحقيق الأرباح</p>
+                </div>
+                
+                <div class="task-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div>
+                            <input type="checkbox" id="task2" onchange="completeTask('task2', 50, 'basic')" style="margin-left: 10px;">
+                            <label for="task2" style="font-weight: bold; color: var(--text-lighter);">تحميل الدليل الأول</label>
+                        </div>
+                        <span class="flame-points"><i class="fas fa-fire"></i> +50</span>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 14px; margin-top: 5px;">احصل على دليل البداية السريعة لاستخدام الذكاء الاصطناعي في التجارة</p>
+                </div>
+            </div>
+            
+            <!-- المهام المتقدمة -->
+            <div class="task-list" style="margin-top: 30px;" class="fade-in">
+                <h3 style="color: var(--accent-color);"><i class="fas fa-star"></i> المهام المتقدمة</h3>
+                
+                <div class="task-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div>
+                            <input type="checkbox" id="task3" onchange="completeTask('task3', 100, 'advanced')" style="margin-left: 10px;">
+                            <label for="task3" style="font-weight: bold; color: var(--text-lighter);">إنشاء أول منتج رقمي</label>
+                        </div>
+                        <span class="badge">متقدم</span>
+                        <span class="flame-points"><i class="fas fa-fire"></i> +100</span>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 14px; margin-top: 5px;">استخدم أدواتنا المتقدمة لإنشاء منتجك الرقمي الأول وابدأ رحلتك نحو الربح</p>
+                </div>
+                
+                <div class="task-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div>
+                            <input type="checkbox" id="task4" onchange="completeTask('task4', 150, 'advanced')" style="margin-left: 10px;">
+                            <label for="task4" style="font-weight: bold; color: var(--text-lighter);">جذب أول عميل</label>
+                        </div>
+                        <span class="badge">متقدم</span>
+                        <span class="flame-points"><i class="fas fa-fire"></i> +150</span>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 14px; margin-top: 5px;">استخدم استراتيجيات التسويق الذكية لجذب عميلك الأول وبدء تحقيق الأرباح</p>
+                </div>
+                
+                <div class="task-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                        <div>
+                            <input type="checkbox" id="task5" onchange="completeTask('task5', 200, 'advanced')" style="margin-left: 10px;">
+                            <label for="task5" style="font-weight: bold; color: var(--text-lighter);">الوصول إلى مستوى الخبير</label>
+                        </div>
+                        <span class="badge">تحدي</span>
+                        <span class="flame-points"><i class="fas fa-fire"></i> +200</span>
+                    </div>
+                    <p style="color: var(--text-light); font-size: 14px; margin-top: 5px;">أكمل جميع المهام وأثبت مهارتك لتصبح خبيراً معتمداً في النظام</p>
+                </div>
+            </div>
+            
+            <!-- قسم الإنجازات -->
+            <div id="achievements-section" style="margin-top: 30px;" class="fade-in">
+                <h3 style="color: var(--accent-color);"><i class="fas fa-trophy"></i> إنجازاتك</h3>
+                <div id="achievements-container"></div>
+            </div>
         </div>
     </div>
-</div>
 
-<!-- مكتبة EmailJS -->
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-    // تهيئة EmailJS بمفاتيحك
-    emailjs.init("T6fbrKphHDBAfp9NI");
-    
-    // بيانات المستخدم
-    const userData = {
-        name: "",
-        email: "",
-        points: 0,
-        completedTasks: [],
-        registered: false
-    };
-    
-    // DOM Events
-    document.getElementById('register-form').addEventListener('submit', async function(e) {
-        e.preventDefault();
+    <!-- مكتبات JavaScript -->
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.0/firebase-auth-compat.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+    <script>
+        // 1. تهيئة Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyYOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
         
-        userData.name = document.getElementById('user-name').value.trim();
-        userData.email = document.getElementById('user-email').value.trim();
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+        const auth = firebase.auth();
         
-        if (!isValidEmail(userData.email)) {
-            alert("الرجاء إدخال بريد إلكتروني صحيح");
-            return;
+        // 2. تهيئة EmailJS
+        emailjs.init("T6fbrKphHDBAfp9NI");
+        
+        // 3. بيانات المستخدم المحسنة
+        const userData = {
+            name: "",
+            email: "",
+            flames: 0, // تغيير إلى نظام الشعلات
+            completedTasks: [],
+            achievements: [],
+            level: 1,
+            registered: false,
+            lastLogin: new Date().toISOString(),
+            themePreference: "dark" // تفضيل الثيم
+        };
+        
+        // 4. تعريف المهام والإنجازات
+        const tasks = {
+            basic: [
+                { id: 'task1', name: 'مشاهدة الفيديو التمهيدي', flames: 30 },
+                { id: 'task2', name: 'تحميل الدليل الأول', flames: 50 }
+            ],
+            advanced: [
+                { id: 'task3', name: 'إنشاء أول منتج رقمي', flames: 100 },
+                { id: 'task4', name: 'جذب أول عميل', flames: 150 },
+                { id: 'task5', name: 'الوصول إلى مستوى الخبير', flames: 200 }
+            ]
+        };
+        
+        const achievements = [
+            { id: 'beginner', name: 'المبتدئ الناري', description: 'أكمل أول مهمة', flamesRequired: 30 },
+            { id: 'explorer', name: 'المستكشف الجريء', description: 'أكمل 3 مهام', flamesRequired: 100 },
+            { id: 'expert', name: 'خبير النيران', description: 'أكمل جميع المهام', flamesRequired: 300 }
+        ];
+        
+        // 5. دوال النظام الأساسية
+        function completeTask(taskId, flames, taskType) {
+            if (!userData.completedTasks.includes(taskId)) {
+                userData.completedTasks.push(taskId);
+                userData.flames += flames;
+                userData.level = Math.floor(userData.flames / 100) + 1;
+                
+                checkAchievements();
+                saveUserData();
+                saveUserToFirebase();
+                updateUI();
+                checkVideoAccess();
+                
+                showAlert(`مبروك! أكملت المهمة وربحت <i class="fas fa-fire"></i> ${flames} شعلة`, 'success');
+            }
         }
         
-        if (userData.name.length < 3) {
-            alert("الاسم يجب أن يكون أكثر من 3 أحرف");
-            return;
+        function checkVideoAccess() {
+            const videoOverlay = document.getElementById('video-overlay');
+            const premiumVideo = document.getElementById('premium-video');
+            const currentFlames = document.getElementById('current-flames');
+            
+            currentFlames.textContent = userData.flames;
+            
+            if (userData.flames >= 30) {
+                videoOverlay.style.display = 'none';
+                premiumVideo.style.display = 'block';
+            } else {
+                videoOverlay.style.display = 'flex';
+                premiumVideo.style.display = 'none';
+            }
         }
         
-        try {
-            // إرسال إيميل الترحيب
-            const emailResponse = await emailjs.send("service_gyga01c", "template_2iprvpi", {
-                to_name: userData.name,
-                to_email: userData.email,
-                message: "مرحبًا بك في رحلة الوعي والربح!",
-                reply_to: "monsterhossam1@gmail.com"
+        function checkAchievements() {
+            achievements.forEach(achievement => {
+                if (userData.flames >= achievement.flamesRequired && 
+                    !userData.achievements.includes(achievement.id)) {
+                    userData.achievements.push(achievement.id);
+                    showAchievementUnlocked(achievement);
+                }
+            });
+        }
+        
+        function showAchievementUnlocked(achievement) {
+            const achievementDiv = document.createElement('div');
+            achievementDiv.className = 'task-card';
+            achievementDiv.innerHTML = `
+                <div style="display: flex; align-items: center;">
+                    <i class="fas fa-trophy" style="color: var(--accent-color); font-size: 24px; margin-left: 10px;"></i>
+                    <div>
+                        <h4 style="margin: 0;">إنجاز جديد: ${achievement.name}</h4>
+                        <p style="margin: 5px 0; color: var(--accent-color);">${achievement.description}</p>
+                        <p style="margin: 0; font-size: 12px; color: var(--text-light);">
+                            <i class="fas fa-fire"></i> ${achievement.flamesRequired} شعلة
+                        </p>
+                    </div>
+                </div>
+            `;
+            document.getElementById('achievements-container').prepend(achievementDiv);
+            
+            showAlert(`إنجاز مفتوح: ${achievement.name}!`, 'success');
+        }
+        
+        function updateUI() {
+            // تحديث الشعلات
+            document.getElementById('flame-count').textContent = userData.flames;
+            document.getElementById('display-name').textContent = userData.name;
+            
+            // تحديث شريط التقدم
+            const totalTasks = tasks.basic.length + tasks.advanced.length;
+            const completedTasks = userData.completedTasks.length;
+            const progressPercent = Math.round((completedTasks / totalTasks) * 100);
+            
+            document.getElementById('progress-percent').textContent = progressPercent;
+            document.getElementById('journey-progress').style.width = `${progressPercent}%`;
+            
+            // تحديث حالة المربعات
+            userData.completedTasks.forEach(taskId => {
+                const checkbox = document.getElementById(taskId);
+                if (checkbox) checkbox.checked = true;
             });
             
-            if (emailResponse.status === 200) {
-                // إخفاء قسم التسجيل وإظهار قسم الرحلة
-                document.getElementById('registration-section').classList.add('hidden');
-                document.getElementById('journey-section').classList.remove('hidden');
-                document.getElementById('points-bar').classList.remove('hidden');
-                document.getElementById('display-name').textContent = userData.name;
-                
-                // منح نقاط التسجيل
-                addPoints(50);
-                userData.registered = true;
-                saveUserData();
-                
-                alert("تم التسجيل بنجاح! تحقق من بريدك للإرشادات");
-            } else {
-                alert("حدث خطأ في الإرسال، يرجى المحاولة لاحقًا");
-            }
-        } catch (error) {
-            console.error("فشل إرسال الإيميل:", error);
-            alert("حدث خطأ تقني، يرجى المحاولة لاحقًا");
-        }
-    });
-    
-    // نظام النقاط
-    function addPoints(amount) {
-        userData.points += amount;
-        document.getElementById('points-count').textContent = userData.points;
-        saveUserData();
-    }
-    
-    // إكمال المهام
-    function completeTask(taskId, points) {
-        if (!userData.completedTasks.includes(taskId)) {
-            userData.completedTasks.push(taskId);
-            addPoints(points);
-            alert(`مبروك! لقد أكملت المهمة وربحت ${points} نقطة`);
-        }
-    }
-    
-    // التحقق من صحة البريد
-    function isValidEmail(email) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-    }
-    
-    // حفظ البيانات
-    function saveUserData() {
-        localStorage.setItem('monsterUserData', JSON.stringify(userData));
-    }
-    
-    // تحميل البيانات المحفوظة
-    function loadUserData() {
-        const savedData = localStorage.getItem('monsterUserData');
-        if (savedData) {
-            const parsedData = JSON.parse(savedData);
-            Object.assign(userData, parsedData);
+            // عرض الإنجازات
+            displayAchievements();
             
-            if (userData.registered) {
-                document.getElementById('registration-section').classList.add('hidden');
-                document.getElementById('journey-section').classList.remove('hidden');
-                document.getElementById('points-bar').classList.remove('hidden');
-                document.getElementById('display-name').textContent = userData.name;
-                document.getElementById('points-count').textContent = userData.points;
+            // تحديث حالة الفيديو
+            checkVideoAccess();
+        }
+        
+        function displayAchievements() {
+            const container = document.getElementById('achievements-container');
+            container.innerHTML = '';
+            
+            achievements.forEach(achievement => {
+                const isUnlocked = userData.achievements.includes(achievement.id);
+                
+                const achievementDiv = document.createElement('div');
+                achievementDiv.className = 'task-card';
+                achievementDiv.style.opacity = isUnlocked ? '1' : '0.6';
+                achievementDiv.innerHTML = `
+                    <div style="display: flex; align-items: center;">
+                        <i class="fas ${isUnlocked ? 'fa-trophy' : 'fa-lock'}" 
+                           style="color: ${isUnlocked ? 'var(--accent-color)' : 'var(--text-light)'}; 
+                           font-size: 24px; margin-left: 10px;"></i>
+                        <div>
+                            <h4 style="margin: 0;">${achievement.name}</h4>
+                            <p style="margin: 5px 0;">${achievement.description}</p>
+                            <p style="margin: 0; font-size: 12px; color: var(--text-light);">
+                                <i class="fas fa-fire"></i> ${achievement.flamesRequired} شعلة
+                                ${isUnlocked ? '<span style="color: var(--accent-color);"> (مكتمل)</span>' : ''}
+                            </p>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(achievementDiv);
+            });
+        }
+        
+        function showAlert(message, type = 'success') {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type}`;
+            alertDiv.innerHTML = `
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : type === 'warning' ? 'fa-exclamation-triangle' : 'fa-times-circle'}" 
+                   style="margin-left: 10px;"></i>
+                ${message}
+            `;
+            
+            document.querySelector('.container').prepend(alertDiv);
+            
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+        
+        // 6. نظام الثيمات
+        function toggleTheme() {
+            const themeToggle = document.getElementById('theme-toggle');
+            const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+            
+            // تحميل التفضيل المحفوظ
+            if (localStorage.getItem('theme')) {
+                userData.themePreference = localStorage.getItem('theme');
+                themeToggle.checked = userData.themePreference === 'light';
+                applyTheme(userData.themePreference);
+            } else if (prefersDarkScheme.matches) {
+                userData.themePreference = 'dark';
+                themeToggle.checked = false;
+                applyTheme('dark');
+            } else {
+                userData.themePreference = 'light';
+                themeToggle.checked = true;
+                applyTheme('light');
+            }
+            
+            // تغيير الثيم عند التبديل
+            themeToggle.addEventListener('change', function() {
+                userData.themePreference = this.checked ? 'light' : 'dark';
+                localStorage.setItem('theme', userData.themePreference);
+                applyTheme(userData.themePreference);
+            });
+        }
+        
+        function applyTheme(theme) {
+            const root = document.documentElement;
+            
+            if (theme === 'light') {
+                root.style.setProperty('--primary-color', '#f8f9fa');
+                root.style.setProperty('--secondary-color', '#e9ecef');
+                root.style.setProperty('--text-light', '#212529');
+                root.style.setProperty('--text-lighter', '#343a40');
+                root.style.setProperty('--card-bg', '#ffffff');
+            } else {
+                root.style.setProperty('--primary-color', '#0a192f');
+                root.style.setProperty('--secondary-color', '#172a45');
+                root.style.setProperty('--text-light', '#ccd6f6');
+                root.style.setProperty('--text-lighter', '#e6f1ff');
+                root.style.setProperty('--card-bg', '#112240');
             }
         }
-    }
-    
-    // تحميل البيانات عند بدء الصفحة
-    document.addEventListener('DOMContentLoaded', loadUserData);
-</script>
-
+        
+        // 7. دوال Firebase
+        async function saveUserToFirebase() {
+            if (!auth.currentUser) return;
+            
+            try {
+                await db.collection('users').doc(auth.currentUser.uid).set({
+                    ...userData,
+                    lastUpdated: firebase.firestore.FieldValue.serverTimestamp()
+                });
+                console.log('تم حفظ البيانات في Firebase');
+            } catch (error) {
+                console.error('خطأ في حفظ البيانات:', error);
+            }
+        }
+        
+        async function loadUserFromFirebase() {
+            if (!auth.currentUser) return;
+            
+            try {
+                const doc = await db.collection('users').doc(auth.currentUser.uid).get();
+                if (doc.exists) {
+                    Object.assign(userData, doc.data());
+                    updateUI();
+                    applyTheme(userData.themePreference);
+                    document.getElementById('theme-toggle').checked = userData.themePreference === 'light';
+                }
+            } catch (error) {
+                console.error('خطأ في تحميل البيانات:', error);
+            }
+        }
+        
+        // 8. نظام التمرير
+        function setupScroll() {
+            // شريط التقدم العلوي
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById('progress-fill').style.width = scrolled + '%';
+                
+                // زر الذهاب للأعلى
+                const scrollTopBtn = document.querySelector('.scroll-top');
+                if (window.pageYOffset > 300) {
+                    scrollTopBtn.classList.add('active');
+                } else {
+                    scrollTopBtn.classList.remove('active');
+                }
+            });
+        }
+        
+        // 9. تهيئة الصفحة
+        document.addEventListener('DOMContentLoaded', () => {
+            // تحميل الثيم
+            toggleTheme();
+            
+            // إعداد التمرير
+            setupScroll();
+            
+            // تحميل البيانات المحلية
+            loadUserData();
+            
+            // مراقبة حالة المصادقة
+            auth.onAuthStateChanged(user => {
+                if (user) {
+                    loadUserFromFirebase();
+                }
+            });
+            
+            // معالج التسجيل
+            document.getElementById('register-form').addEventListener('submit', async function(e) {
+                e.preventDefault();
+                
+                const userName = document.getElementById('user-name').value.trim();
+                const userEmail = document.getElementById('user-email').value.trim();
+                
+                if (!isValidEmail(userEmail)) {
+                    showAlert("الرجاء إدخال بريد إلكتروني صحيح", 'error');
+                    return;
+                }
+                
+                if (userName.length < 3) {
+                    showAlert("الاسم يجب أن يكون أكثر من 3 أحرف", 'error');
+                    return;
+                }
+                
+                try {
+                    // إنشاء حساب مع Firebase Authentication
+                    const userCredential = await auth.createUserWithEmailAndPassword(userEmail, generateRandomPassword());
+                    
+                    // إرسال إيميل الترحيب
+                    const emailResponse = await emailjs.send("service_gyga01c", "template_2iprvpi", {
+                        to_name: userName,
+                        to_email: userEmail,
+                        message: "مرحبًا بك في إمبراطورية مونستر! سنرسل لك دليل البداية قريبًا.",
+                        reply_to: "monsterhossam1@gmail.com"
+                    });
+                    
+                    if (emailResponse.status === 200) {
+                        // تحديث بيانات المستخدم
+                        userData.name = userName;
+                        userData.email = userEmail;
+                        userData.flames = 50;
+                        userData.registered = true;
+                        userData.lastLogin = new Date().toISOString();
+                        
+                        // حفظ البيانات
+                        saveUserData();
+                        await saveUserToFirebase();
+                        
+                        // تحديث الواجهة
+                        document.getElementById('registration-section').classList.add('hidden');
+                        document.getElementById('journey-section').classList.remove('hidden');
+                        document.getElementById('flame-bar').classList.remove('hidden');
+                        updateUI();
+                        
+                        showAlert("تم التسجيل بنجاح! تحقق من بريدك للإرشادات", 'success');
+                    }
+                } catch (error) {
+                    console.error('خطأ في التسجيل:', error);
+                    showAlert(`فشل التسجيل: ${error.message || "حدث خطأ غير متوقع"}`, 'error');
+                }
+            });
+        });
+        
+        function generateRandomPassword() {
+            return Math.random().toString(36).slice(-8) + "Aa1!";
+        }
+        
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+        
+        function saveUserData() {
+            localStorage.setItem('monsterUserData', JSON.stringify(userData));
+        }
+        
+        function loadUserData() {
+            const savedData = localStorage.getItem('monsterUserData');
+            if (savedData) {
+                const parsedData = JSON.parse(savedData);
+                Object.assign(userData, parsedData);
+                
+                if (userData.registered) {
+                    document.getElementById('registration-section').classList.add('hidden');
+                    document.getElementById('journey-section').classList.remove('hidden');
+                    document.getElementById('flame-bar').classList.remove('hidden');
+                    updateUI();
+                }
+            }
+        }
+    </script>
 </body>
 </html>
